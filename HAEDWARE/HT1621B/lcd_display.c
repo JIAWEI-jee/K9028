@@ -218,7 +218,7 @@ void lcd_display_gap ( u8 gap )
 			ht1621_write_byte ( 29,COM1 );
 			ht1621_write_byte ( 30,COM2|COM3|COM4 );
 			Blink_std = 1;
-			 led_set_on();
+		 led_set_on();
 		}
 		else
 		{
