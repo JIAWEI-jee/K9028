@@ -4,7 +4,6 @@
 #include "timer.h"
 u8 calibration_std = 0;
 u8 ac_std = 0,HEAT_STD = 0;
-u16 AC_POWER_CNT = second_heat_power; 
 
 #define KEY_PRESS_TIME 700
 
@@ -39,7 +38,7 @@ void PWM_out()
 	{
 		if ( ac_std == 2 )
 		{
-			if ( ++cnt > AC_POWER_CNT )
+			if ( ++cnt > AC_cnt )
 			{
 				cnt = 0;
 
@@ -199,6 +198,8 @@ static unsigned char Calibration_key_driver ( void )
 u8 key_scan ( void )
 {
 	static u8 key_up = 1;
+//	static u16 key_pres_time = 0;
+
 
 	if ( key_driver() == KEY_1_LONG )
 	{

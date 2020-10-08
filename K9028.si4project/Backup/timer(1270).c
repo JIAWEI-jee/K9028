@@ -152,6 +152,16 @@ static void set_heat_val ( void )
 			set_correct_Value (  );
 		}
 	}
+//	if (Heat_start_std == 2)
+//		{
+//		   one_heat = 1;
+//           if ( ++time_heat > Heat_Value)
+//           	{
+//           	   one_heat = 0;
+//              Heat_start_std = 1;
+//		    }
+//      
+//	    }
 }
 
 void set_time_sec ( void )
@@ -193,7 +203,7 @@ void set_time_sec ( void )
 		cnt_heat_time = 0;
 		temp_time = 0;
 	}
-//	gm_printf ( "time second:%d \r\n",time_sec );
+	gm_printf ( "time second:%d \r\n",time_sec );
 }
 
 

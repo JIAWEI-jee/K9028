@@ -320,6 +320,7 @@ void temperature_handle ( void )
 				{
 //				set_pwm ( 0 );
 					HEAT_STD = 0;
+
 					ht1621_send_cmd ( LCD_OFF );
 					cali_display_std = 0;
 				}
@@ -332,6 +333,7 @@ void temperature_handle ( void )
 			cali_display_std = 0;
 			ht1621_all_clear();
 			HEAT_STD = 0;
+
 			error_std = Error_STD;
 			lcd_display_gap ( error_std );
 			fault_std = 1;

@@ -2,12 +2,12 @@
 #define __FLASH_H__
 #include "HC89F303.h"
 
-#define FLASH_CHECK_ADDRESS   0X3C00 //1024*14 = 0X3800   
+#define FLASH_CHECK_ADDRESS   0X3C00 //用flash末尾1K(总16K)地址作为存储基地址 1024*14 = 0X3800   
 #define FLASH_DATA_ADDRESS	FLASH_CHECK_ADDRESS + 4
 
 #define Correct_Value  2
 #define first_heat_power  26  // 58~60W
-#define second_heat_power 31  // 31 -> 48~50W
+#define second_heat_power 26  // 31 -> 48~50W
 
 typedef enum TIMER_TYPE
 {
@@ -44,7 +44,7 @@ typedef enum GAP_TEMP
 	GAP_5_temp	= 60,
 	GAP_6_temp	= 65,
 	GAP_7_temp	= 70,
-	GAP_8_temp	= 73,
+	GAP_8_temp	= 70,
 	GAP_9_temp	= 77,
 	One_Heat_Temp = 77,
 };
@@ -52,14 +52,14 @@ typedef enum GAP_TEMP
 	{
 		corrected_value_warm_temp	= 1,
 		corrected_value_GAP_1_temp	= 1,
-		corrected_value_GAP_2_temp	= 1,
-		corrected_value_GAP_3_temp	= 1,
-		corrected_value_GAP_4_temp	= 3,
+		corrected_value_GAP_2_temp	= 3,
+		corrected_value_GAP_3_temp	= 3,
+		corrected_value_GAP_4_temp	= 5,
 		corrected_value_GAP_5_temp	= 5,
-		corrected_value_GAP_6_temp	= 5,
-		corrected_value_GAP_7_temp	= 5,
-		corrected_value_GAP_8_temp	= 8,
-		corrected_value_GAP_9_temp	= 8,
+		corrected_value_GAP_6_temp	= 8,
+		corrected_value_GAP_7_temp	= 12,
+		corrected_value_GAP_8_temp	= 12,
+		corrected_value_GAP_9_temp	= 1,
 	
 	};
 
@@ -67,15 +67,15 @@ typedef enum GAP_TEMP
 		{
 			
 			corrected_time_warm_temp	= 30*1,
-			corrected_time_GAP_1_temp	= 60*4,
-			corrected_time_GAP_2_temp	= 60*5,
-			corrected_time_GAP_3_temp	= 60*6,
-			corrected_time_GAP_4_temp	= 60*6,
-			corrected_time_GAP_5_temp	= 60*7,
-			corrected_time_GAP_6_temp	= 60*11,
-			corrected_time_GAP_7_temp	= 60*17,
-			corrected_time_GAP_8_temp	= 60*27,
-			corrected_time_GAP_9_temp	= 60*27,
+			corrected_time_GAP_1_temp	= 30*2,
+			corrected_time_GAP_2_temp	= 30*2,
+			corrected_time_GAP_3_temp	= 30*2,
+			corrected_time_GAP_4_temp	= 30*3,
+			corrected_time_GAP_5_temp	= 30*4,
+			corrected_time_GAP_6_temp	= 30*5,
+			corrected_time_GAP_7_temp	= 60*3,
+			corrected_time_GAP_8_temp	= 60*4,
+			corrected_time_GAP_9_temp	= 60*4,
 		
 		};
 
@@ -96,7 +96,7 @@ typedef struct _flash_info_t
 } flash_info_t;
 
 extern flash_info_t flash_info;
-
+//extern  u8 device_state;
 
 void flash_init ( void );
 void flah_save_data ( void );

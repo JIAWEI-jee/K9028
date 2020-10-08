@@ -199,6 +199,8 @@ static unsigned char Calibration_key_driver ( void )
 u8 key_scan ( void )
 {
 	static u8 key_up = 1;
+//	static u16 key_pres_time = 0;
+
 
 	if ( key_driver() == KEY_1_LONG )
 	{

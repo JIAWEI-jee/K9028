@@ -5,7 +5,6 @@
 
 extern u8 calibration_std;
 extern u8 ac_std,HEAT_STD;
-extern u16 AC_POWER_CNT;
 #define AC_cnt  31
 #define KEY_1 	P2_5
 #define KEY_2 	P2_6
