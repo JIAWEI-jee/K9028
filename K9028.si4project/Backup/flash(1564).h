@@ -6,8 +6,8 @@
 #define FLASH_DATA_ADDRESS	FLASH_CHECK_ADDRESS + 4
 
 #define Correct_Value  2
-#define first_heat_power  14 // 14 ->58~60W      26 ->58~60W
-#define second_heat_power 19 // 19 ->48~50W      31 -> 48~50W
+#define first_heat_power  26  // 58~60W
+#define second_heat_power 26  // 31 -> 48~50W
 
 typedef enum TIMER_TYPE
 {

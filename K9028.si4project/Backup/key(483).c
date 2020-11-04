@@ -4,7 +4,7 @@
 #include "timer.h"
 u8 calibration_std = 0;
 u8 ac_std = 0,HEAT_STD = 0;
-u16 AC_POWER_CNT = second_heat_power;
+u16 AC_POWER_CNT = second_heat_power; 
 
 #define KEY_PRESS_TIME 700
 
@@ -16,7 +16,6 @@ void key_init ( void )
 	P0M2 = 0x61;                        //P02设置为非施密特数字带上拉输入
 	P2M7 = 0XC1;                        //设置为推挽输出
 	P0M0 = 0XC1;                        //设置为推挽输出
-	P2M1 = 0X51;                        //设置位非施密特带下拉输入
 }
 
 
@@ -46,7 +45,6 @@ void PWM_out()
 
 				POWER_IO = 1;
 				delay_ms ( 3 );
-
 				POWER_IO = 0;
 				ac_std = 0;
 			}

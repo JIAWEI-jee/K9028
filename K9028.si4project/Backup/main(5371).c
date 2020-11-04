@@ -12,7 +12,7 @@
 #include "wdt.h"
 
 #define SKU 9028
-#define SOFT_VER "1.01.00"
+#define SOFT_VER "1.00.00"
 
 u16 adc_cnt = 0;
 u8  first_heat_std = 0,fault_std = 0,Res_std = 0;
@@ -215,7 +215,7 @@ u16 temp_calc ( u16 uR510,u16 uRw )
 	{
 		return 0xff;
 	}
-//	gm_printf ( "R = %f  \r\n",u1 );
+	gm_printf ( "R = %f  \r\n",u1 );
 	u1 = u1 / Length;
 	if ( u1 < 73 )
 	{
@@ -286,7 +286,7 @@ void temperature_handle ( void )
 		temp = temp_calc ( adc_val1, adc_val3 );
 //			KEY_printf ( "temp val:%d \r\n",temp );
 		temp =	calibration_temperature ( temp );
-//			KEY_printf ( "%d \r\n",temp );
+			KEY_printf ( "%d \r\n",temp );
     
 		if ( ( adc_val1 >50 ) && ( Res_std == 0 ) ) //( adc_val1 >50 ) && ( Res_std == 0 )
 		{
@@ -338,7 +338,7 @@ void temperature_handle ( void )
 			calibration_std = 0;
 			cali_display_std = 0;
 			ht1621_all_clear();
-			HEAT_STD = 0;
+			set_pwm ( 0 );
 			error_std = Error_STD;
 			lcd_display_gap ( error_std );
 			fault_std = 1;
@@ -348,7 +348,7 @@ void temperature_handle ( void )
 			calibration_std = 0;
 			cali_display_std = 0;
 			ht1621_all_clear();
-			HEAT_STD = 0;
+			set_pwm ( 0 );
 			error_std = Error_Res_STD;
 			lcd_display_gap ( error_std );
 			fault_std = 1;

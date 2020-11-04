@@ -53,8 +53,8 @@ void FLASH_WriteData(u8 fuc_SaveData, u16 addr)
   * @说明  	写入任意长度的数据到FLASH里面
   * @参数  	fui_Address ：FLASH起始地址
   *	@参数	len ： 写入数据长度
-  *	@参数	*fucp_SaveArr：写入的数据存放区域的首地址
   *			取值范围：0x00-0xFF
+  *	@参数	*fucp_SaveArr：写入的数据存放区域的首地址
   * @返回值 无
   * @注		写之前必须先对操作的扇区进行擦除
   */

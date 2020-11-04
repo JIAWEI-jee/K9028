@@ -338,7 +338,7 @@ void temperature_handle ( void )
 			calibration_std = 0;
 			cali_display_std = 0;
 			ht1621_all_clear();
-			HEAT_STD = 0;
+			set_pwm ( 0 );
 			error_std = Error_STD;
 			lcd_display_gap ( error_std );
 			fault_std = 1;
@@ -348,7 +348,7 @@ void temperature_handle ( void )
 			calibration_std = 0;
 			cali_display_std = 0;
 			ht1621_all_clear();
-			HEAT_STD = 0;
+			set_pwm ( 0 );
 			error_std = Error_Res_STD;
 			lcd_display_gap ( error_std );
 			fault_std = 1;

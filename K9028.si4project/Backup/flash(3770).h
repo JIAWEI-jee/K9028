@@ -6,8 +6,8 @@
 #define FLASH_DATA_ADDRESS	FLASH_CHECK_ADDRESS + 4
 
 #define Correct_Value  2
-#define first_heat_power  14 // 14 ->58~60W      26 ->58~60W
-#define second_heat_power 19 // 19 ->48~50W      31 -> 48~50W
+#define first_heat_power  26  // 58~60W
+#define second_heat_power 31  // 31 -> 48~50W
 
 typedef enum TIMER_TYPE
 {
@@ -37,14 +37,14 @@ typedef enum GAP_TYPE
 typedef enum GAP_TEMP
 {
 	GAP_WARM_temp	= 30,
-	GAP_1_temp 	= 40,
-	GAP_2_temp	= 43,
-	GAP_3_temp	= 47,
+	GAP_1_temp 	= 43,
+	GAP_2_temp	= 47,
+	GAP_3_temp	= 50,
 	GAP_4_temp	= 54,
 	GAP_5_temp	= 60,
 	GAP_6_temp	= 65,
 	GAP_7_temp	= 70,
-	GAP_8_temp	= 70,
+	GAP_8_temp	= 73,
 	GAP_9_temp	= 77,
 	One_Heat_Temp = 77,
 };
@@ -67,9 +67,9 @@ typedef enum GAP_TEMP
 		{
 			
 			corrected_time_warm_temp	= 30*1,
-			corrected_time_GAP_1_temp	= 30*5,
-			corrected_time_GAP_2_temp	= 60*4,
-			corrected_time_GAP_3_temp	= 60*5,
+			corrected_time_GAP_1_temp	= 60*4,
+			corrected_time_GAP_2_temp	= 60*5,
+			corrected_time_GAP_3_temp	= 60*6,
 			corrected_time_GAP_4_temp	= 60*6,
 			corrected_time_GAP_5_temp	= 60*7,
 			corrected_time_GAP_6_temp	= 60*11,
