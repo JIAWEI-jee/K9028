@@ -10,7 +10,6 @@
 #include "lcd_display.h"
 #include "adc.h"
 #include "wdt.h"
-#include "product.h"
 
 #define SKU 9028
 #define SOFT_VER "1.01.00"
@@ -22,7 +21,7 @@ void Set_Temp ( u16 temp );
 void Controll_Heat ( u16 temp_set,u16 temp_now );
 void Protect ( void );
 void Error ( void );
-void Res_test ( void );
+void Res_test(void);
 void device_init ( void )
 {
 	/************************************系统初始化****************************************/
@@ -90,7 +89,7 @@ static void key_handle ( void )
 			led_set_on();
 		}
 
-		if ( key_val == KEY_2_PRES )
+		if ( key_val == KEY_2_PRES ) 
 		{
 			led_set_on();
 //			KEY_printf ( " KEY_2_PRES\r\n" );
@@ -288,7 +287,7 @@ void temperature_handle ( void )
 //			KEY_printf ( "temp val:%d \r\n",temp );
 		temp =	calibration_temperature ( temp );
 //			KEY_printf ( "%d \r\n",temp );
-		RES_val =  get_adc_val_ch_RES();
+  RES_val =  get_adc_val_ch_RES();
 //     KEY_printf ( "%d \r\n",RES_val );
 		if ( ( adc_val1 >50 ) && ( Res_std == 0 ) ) //( adc_val1 >50 ) && ( Res_std == 0 )
 		{
@@ -375,17 +374,16 @@ void main ( void )
 	key_init();
 	time0_init();
 	flash_init();
-	
+
 	led_set_on();
 	init_lcd_ht1621b();
 	delay_ms ( 800 );
 	ht1621_all_clear();
 	lcd_display_gap ( GAP_8 );
-
 	wdt_init ( 2 );
 
-	HEAT_STD = 1;
-  product_check_process ();
+	HEAT_STD = 0;
+
 	gm_printf ( "\r\n==================================\r\n" );
 	gm_printf ( "sku:K%d \r\n", ( u16 ) SKU );
 	gm_printf ( "soft version:%s \r\n",SOFT_VER );
@@ -399,7 +397,7 @@ void main ( void )
 		temperature_handle();
 		AC_TEST();
 		PWM_out();
-		Res_test();
+        Res_test();
 		clear_wdt();
 
 	}
@@ -425,12 +423,12 @@ void Set_Temp ( u16 temp )
 {
 	if ( one_heat == 1 )
 	{
-
+		
 		Controll_Heat ( One_Heat_Temp,temp );
 	}
 	else
 	{
-
+		
 		switch ( flash_info.gap )
 		{
 			case GAP_WARM:
@@ -484,12 +482,12 @@ void Protect ( void )
 		}
 	}
 }
-void Res_test ( void )
+void Res_test(void)
 {
-	if ( RES_val > 1000 )
-	{
-		Res_std = 1;
-	}
+      if (RES_val > 1000 )
+		{
+			Res_std = 1;
+		}
 
 }
 

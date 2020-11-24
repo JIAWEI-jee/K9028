@@ -19,7 +19,6 @@ u8 one_heat = 0;
 u16 exti_cail_cnt = 0;
 u16 led_time_cnt = 0;
 u8   LED_std = 0;
-u8   systick_10ms = 0;
 
 void led_set_on(void)
 {
@@ -288,7 +287,6 @@ void TIMER0_Rpt ( void ) interrupt TIMER0_VECTOR
 		  exti_cail_cnt = 0;
 		}
 	}
-	systick_10ms = 1;
 }
 
 void time_Print ( void )

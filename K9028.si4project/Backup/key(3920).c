@@ -16,7 +16,7 @@ void key_init ( void )
 	P0M2 = 0x61;                        //P02设置为非施密特数字带上拉输入
 	P2M7 = 0XC1;                        //设置为推挽输出
 	P0M0 = 0XC1;                        //设置为推挽输出
-//	P2M1 = 0X51;                        //设置位非施密特带下拉输入
+	P2M1 = 0X51;                        //设置位非施密特带下拉输入
 }
 
 
@@ -36,7 +36,7 @@ void AC_TEST ( void )
 void PWM_out()
 {
 	static u16 cnt = 0;
-	if ( HEAT_STD == 1 )//
+	if ( HEAT_STD == 1 )
 	{
 		if ( ac_std == 2 )
 		{

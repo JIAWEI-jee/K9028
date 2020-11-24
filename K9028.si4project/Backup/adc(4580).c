@@ -6,7 +6,6 @@ void adc_init(void)
 {
     P0M1 = 0x01;		//P01设置为模拟输入
     P0M3 = 0x01;        //P03设置为模拟输入
-    P2M1 = 0X01;        //P21设置为模拟输入
 	ADCC0 = 0x80;		//打开ADC转换电源			00 VDD
 //											01 内部4V
 //											10 内部3V
@@ -50,19 +49,6 @@ u16 get_adc_val_ch(void)
 	return adc_val_ch;
 }
 
-u16 get_adc_val_ch_RES(void)
-{
-	u16 adc_val_ch = 0;
-	ADCC1 = 0x09;                     //选择ADC通道9
-	
-	ADCC0 |= 0x40;					//启动ADC转换
-	while(!(ADCC0&0x20));			//等待ADC转换结束
-	ADCC0 &=~ 0x20;					//清除标志位
-	adc_val_ch = ADCR;					//获取ADC的值
-
-//    ADC_printf("P23_ADC = %d \r\n",adc_val_ch);
-	return adc_val_ch;
-}
 
 
 void get_voltage(u16 *u1_voltage,u16 *u3_voltage)

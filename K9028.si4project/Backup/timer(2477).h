@@ -26,7 +26,7 @@ extern u8  Open_Heat_Value;
 extern u8 one_heat;
 extern u16 led_time_cnt;
 extern u8   LED_std;
-extern u8   systick_10ms;
+
 void time0_init(void);
 void set_time_sec_val(u16 sec);
 void set_time_sec(void);

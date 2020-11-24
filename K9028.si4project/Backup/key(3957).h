@@ -13,7 +13,7 @@ extern u16 AC_POWER_CNT;
 #define AC_CY   P0_2
 #define ac_out  P2_7
 #define POWER_IO P0_0
-//#define Res_IO   P2_1
+#define Res_IO   P2_1
 		
 
 #define KEY_1_PRES 	1	//KEY1°´ÏÂ
